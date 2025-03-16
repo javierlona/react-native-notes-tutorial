@@ -3,6 +3,8 @@ import PostItImage from "@assets/images/post-it.png";
 import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Image source={PostItImage} style={styles.image} />
@@ -12,7 +14,7 @@ export default function HomeScreen() {
       </Text>
       <TouchableOpacity
         onPress={() => {
-          useRouter().push("notes");
+          router.push("/notes");
         }}
         style={styles.button}
       >
