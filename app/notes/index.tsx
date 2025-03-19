@@ -19,6 +19,23 @@ export default function NotesScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [noteText, setNoteText] = useState("");
 
+  const addNote = () => {
+    if (noteText.trim() === "") {
+      return;
+    }
+
+    setNotes([
+      ...notes,
+      {
+        id: notes.length + 1,
+        text: noteText,
+      },
+    ]);
+
+    setNoteText("");
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -62,7 +79,7 @@ export default function NotesScreen() {
                 <Text style={styles.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.saveButton}>
+              <TouchableOpacity style={styles.saveButton} onPress={addNote}>
                 <Text style={styles.saveButtonText}>Save</Text>
               </TouchableOpacity>
             </View>
@@ -141,7 +158,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   cancelButtonText: {
-    color: "#333",
+    color: "#fff",
     fontSize: 16,
   },
   saveButton: {
