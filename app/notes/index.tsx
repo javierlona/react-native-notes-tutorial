@@ -1,17 +1,17 @@
 import { NoteList } from "@/components/NoteList";
+import { Note } from "@/types/Note";
 import { useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   TouchableOpacity,
   Modal,
   TextInput,
 } from "react-native";
 
 export default function NotesScreen() {
-  const [notes, setNotes] = useState([
+  const [notes, setNotes] = useState<Note[]>([
     { id: 1, text: "Note 1" },
     { id: 2, text: "Note 2" },
     { id: 3, text: "Note 3" },

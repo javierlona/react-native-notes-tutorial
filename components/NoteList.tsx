@@ -1,10 +1,6 @@
 import { FlatList, View } from "react-native";
 import NoteItem from "./NoteItem";
-
-type Note = {
-  id: number;
-  text: string;
-};
+import { Note } from "@/types/Note";
 
 export const NoteList = ({ notes }: { notes: Note[] }) => {
   return (

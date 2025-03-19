@@ -1,6 +1,7 @@
+import { Note } from "@/types/Note";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function NoteItem({ item }: { item: { text: string } }) {
+export default function NoteItem({ item }: { item: Note }) {
   return (
     <View style={styles.noteItem}>
       <Text style={styles.noteText}>{item.text}</Text>
