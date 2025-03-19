@@ -1,3 +1,4 @@
+import { NoteList } from "@/components/NoteList";
 import { useState } from "react";
 import {
   View,
@@ -38,15 +39,7 @@ export default function NotesScreen() {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={notes}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.noteItem}>
-            <Text style={styles.noteText}>{item.text}</Text>
-          </View>
-        )}
-      />
+      <NoteList notes={notes} />
 
       <TouchableOpacity
         style={styles.addNoteButton}
@@ -95,17 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#fff",
-  },
-  noteItem: {
-    flexDirection: "row",
-    padding: 15,
-    justifyContent: "space-between",
-    backgroundColor: "#f5f5f5",
-    borderRadius: 5,
-    marginVertical: 5,
-  },
-  noteText: {
-    fontSize: 18,
   },
   addButtonText: {
     fontSize: 18,
