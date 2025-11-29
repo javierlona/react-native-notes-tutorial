@@ -1,7 +1,7 @@
 import Constants from "expo-constants";
 import databaseService from "./databaseService";
 
-const { appwriteDatabaseId, appwriteCollectionNotes } =
+const { appwriteDatabaseId, appwriteCollectionId } =
   Constants.expoConfig?.extra || {};
 
 const noteService = {
@@ -9,7 +9,7 @@ const noteService = {
     try {
       const response = await databaseService.listDocuments(
         appwriteDatabaseId,
-        appwriteCollectionNotes
+        appwriteCollectionId
       );
       return { data: response };
     } catch (error) {
